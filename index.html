@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Document</title>
+    <style>
+        .container1 {
+            border: 1px solid black;
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+        }
+        
+        .container2 {
+            display: flex;
+            border: 1px solid black;
+            padding: 10px;
+            justify-content: space-around;
+        }
+        
+        .container2 div {
+            padding: 10px;
+            border: 2px solid black;
+            align-items: center;
+        }
+        
+        .container3 {
+            border: 1px solid black;
+        }
+        
+        #ageNotVlid {
+            color: red;
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <h1> <strong>Challenge 1: Your Age in Days</strong><br></h1>
+        <div class="container2">
+
+            <div>
+                <button class="btn btn-primary" onclick="ageInDays()">Click me</button>
+            </div>
+
+            <div>
+                <button class="btn btn-danger" onclick="reset()"> Reset</button>
+            </div>
+
+        </div>
+
+        <div class="container2">
+            <div id="container2-result"></div>
+        </div>
+
+    </div>
+    <script>
+        function ageInDays() {
+            var birthyear = prompt("Enter Your Birthyear:");
+            var age = (2021 - birthyear) * 365;
+            var h1 = document.createElement('h1');
+            var textAnswer = document.createTextNode('You are ' + age + ' days old.');
+            h1.setAttribute('id', 'ageInDays');
+            h1.appendChild(textAnswer);
+            document.getElementById('container2-result').appendChild(h1);
+
+
+            if (age < 0) {
+
+
+                var h2 = document.createElement('h2');
+                var textAnswer = document.createTextNode('* Age Is Not Valid.');
+                h2.setAttribute('id', 'ageNotVlid');
+                h2.appendChild(textAnswer);
+                document.getElementById('container2-result').appendChild(h2);
+
+            }
+
+
+
+        }
+
+        function reset() {
+            document.getElementById('ageInDays').remove();
+            document.getElementById('ageNotVlid').remove();
+
+
+        }
+    </script>
+</body>
+
+</html>
